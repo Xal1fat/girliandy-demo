@@ -27,7 +27,7 @@
     var bEl = b ? '<span class="badge">' + b + "</span>" : saleBadge;
     var stock = p.stock > 0 ? '<span class="stock">' + I.t("stock.in") + "</span>" : '<span class="stock out">' + I.t("stock.out") + "</span>";
     return '<article class="pcard">' +
-      '<div class="pic"><img src="' + img(p) + '" alt="' + p.images[0].alt + '" loading="lazy">' + bEl + "</div>" +
+      '<div class="pic"><img src="' + img(p) + '" alt="' + p.images[0].alt + '" loading="lazy"' + (p.images[0].pos ? ' style="object-position:' + p.images[0].pos + '"' : "") + ">" + bEl + "</div>" +
       '<div class="info"><h3 class="name">' + name(p) + "</h3>" +
       '<p class="desc">' + specs(p)[0] + "</p>" +
       '<div class="prices"><span class="price">' + fmt(p.price) + "</span>" + sale + "</div>" + stock +

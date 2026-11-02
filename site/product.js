@@ -12,6 +12,7 @@
   var thumbs = document.querySelector("[data-thumbs]");
   main.src = "../" + p.images[0].src;
   main.alt = p.images[0].alt;
+  main.style.objectPosition = p.images[0].pos || "";
   thumbs.innerHTML = p.images.map(function (im, i) {
     return '<button type="button" class="' + (i === 0 ? "active" : "") + '" data-i="' + i + '" aria-label="' + I.t("p.photo") + " " + (i + 1) + '"><img src="../' + im.src + '" alt=""></button>';
   }).join("");
@@ -20,6 +21,7 @@
       thumbs.querySelectorAll("button").forEach(function (x) { x.classList.remove("active"); });
       b.classList.add("active");
       main.src = "../" + p.images[Number(b.dataset.i)].src;
+      main.style.objectPosition = p.images[Number(b.dataset.i)].pos || "";
     });
   });
 

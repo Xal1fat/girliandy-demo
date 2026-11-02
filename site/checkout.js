@@ -55,6 +55,9 @@
 
   function orderNumber() { return "G-" + Date.now().toString().slice(-6); }
 
+  var DEL_LABEL = { "np-branch": "co.del1", "np-locker": "co.del2", "np-courier": "co.del3" };
+  var PAY_LABEL = { "cod": "co.pay1", "prepay": "co.pay2" };
+
   function buildMessage(num) {
     var items = C.get().map(function (l) {
       var p = D.products.find(function (x) { return x.id === l.id; });
@@ -65,9 +68,9 @@
       I.t("ord.name") + ": " + val("name"),
       I.t("ord.phone") + ": " + val("phone"),
       I.t("ord.city") + ": " + val("city"),
-      I.t("ord.delivery") + ": " + val("delivery"),
+      I.t("ord.delivery") + ": " + (DEL_LABEL[val("delivery")] ? I.t(DEL_LABEL[val("delivery")]) : val("delivery")),
       I.t("ord.address") + ": " + val("address"),
-      I.t("ord.payment") + ": " + val("payment"),
+      I.t("ord.payment") + ": " + (PAY_LABEL[val("payment")] ? I.t(PAY_LABEL[val("payment")]) : val("payment")),
       val("comment") ? I.t("ord.comment") + ": " + val("comment") : "",
       "—",
       items.join("\n"),
