@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var D = window.GIRLIANDY, U = window.UI, C = window.Cart;
+  var D = window.GIRLIANDY, U = window.UI, C = window.Cart, I = window.I18N;
 
   var itemsEl = document.querySelector("[data-cart-items]");
   var totalEl = document.querySelector("[data-total]");
@@ -10,16 +10,16 @@
     if (!p) return "";
     return '<div class="cart-line">' +
       '<img src="' + U.img(p) + '" alt="">' +
-      '<div class="meta"><div class="name">' + p.name + '</div>' +
+      '<div class="meta"><div class="name">' + U.name(p) + '</div>' +
       '<div class="price">' + U.fmt(p.price) + "</div>" +
-      '<div class="qty"><button type="button" data-dec="' + p.id + '" aria-label="Зменшити">−</button><span>' + line.qty + '</span><button type="button" data-inc="' + p.id + '" aria-label="Збільшити">+</button></div></div>' +
-      '<button class="remove" type="button" data-remove="' + p.id + '">Прибрати</button></div>';
+      '<div class="qty"><button type="button" data-dec="' + p.id + '" aria-label="' + I.t("co.dec") + '">−</button><span>' + line.qty + '</span><button type="button" data-inc="' + p.id + '" aria-label="' + I.t("co.inc") + '">+</button></div></div>' +
+      '<button class="remove" type="button" data-remove="' + p.id + '">' + I.t("co.remove") + "</button></div>";
   }
 
   function renderCart() {
     var items = C.get();
     if (!items.length) {
-      itemsEl.innerHTML = '<p class="cart-empty">Кошик порожній.</p>';
+      itemsEl.innerHTML = '<p class="cart-empty">' + I.t("co.empty") + "</p>";
       totalEl.textContent = "0 ₴";
     } else {
       itemsEl.innerHTML = items.map(lineHTML).join("");
@@ -58,30 +58,30 @@
   function buildMessage(num) {
     var items = C.get().map(function (l) {
       var p = D.products.find(function (x) { return x.id === l.id; });
-      return "• " + p.name + " — " + l.qty + " шт — " + U.fmt(p.price * l.qty);
+      return "• " + U.name(p) + " — " + l.qty + " шт — " + U.fmt(p.price * l.qty);
     });
     return [
-      "Нове замовлення Girliandy " + num,
-      "Ім'я: " + val("name"),
-      "Телефон: " + val("phone"),
-      "Місто: " + val("city"),
-      "Доставка: " + val("delivery"),
-      "Адреса: " + val("address"),
-      "Оплата: " + val("payment"),
-      val("comment") ? "Коментар: " + val("comment") : "",
+      I.t("ord.new") + " " + num,
+      I.t("ord.name") + ": " + val("name"),
+      I.t("ord.phone") + ": " + val("phone"),
+      I.t("ord.city") + ": " + val("city"),
+      I.t("ord.delivery") + ": " + val("delivery"),
+      I.t("ord.address") + ": " + val("address"),
+      I.t("ord.payment") + ": " + val("payment"),
+      val("comment") ? I.t("ord.comment") + ": " + val("comment") : "",
       "—",
       items.join("\n"),
-      "Разом: " + U.fmt(C.total())
+      I.t("ord.total") + ": " + U.fmt(C.total())
     ].filter(Boolean).join("\n");
   }
 
   document.querySelector("[data-form]").addEventListener("submit", function (e) {
     e.preventDefault();
-    if (!C.get().length) { itemsEl.innerHTML = '<p class="cart-empty">Додайте товар у кошик, щоб оформити замовлення.</p>'; return; }
+    if (!C.get().length) { itemsEl.innerHTML = '<p class="cart-empty">' + I.t("co.emptyOrder") + "</p>"; return; }
     if (!validate()) return;
     var num = orderNumber();
     window.open(U.tg(buildMessage(num)), "_blank", "noopener");
-    document.querySelector("[data-order-num]").textContent = "Замовлення " + num;
+    document.querySelector("[data-order-num]").textContent = I.t("co.orderNum") + " " + num;
     document.querySelector("[data-layout]").hidden = true;
     document.querySelector("[data-success]").hidden = false;
     window.scrollTo(0, 0);

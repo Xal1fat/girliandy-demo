@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var D = window.GIRLIANDY, U = window.UI, C = window.Cart;
+  var D = window.GIRLIANDY, U = window.UI, C = window.Cart, I = window.I18N;
   var ORDER_IDS = [
     "hirlianda-shtora-teple-svitlo", "pled-iz-pidihrivom", "vulychnyi-soniachnyi-svitylnyk",
     "smart-proektor-dlia-domu", "sadovi-likhtari-nabir-4", "paverbank-20000",
@@ -39,14 +39,15 @@
     var info = document.createElement("div");
     info.className = "card__info";
     info.innerHTML =
-      '<div class="card__text"><div class="card__name">' + p.name + '</div>' +
+      '<div class="card__text"><div class="card__name">' + U.name(p) + '</div>' +
       '<div class="card__price">' + U.fmt(p.price) + "</div></div>" +
-      '<button class="card__order" type="button" aria-label="Замовити ' + p.name + '">Замовити</button>';
+      '<button class="card__order" type="button" aria-label="' + I.t("nav.order") + ' ' + U.name(p) + '">' + I.t("nav.order") + "</button>";
     card.appendChild(photo);
     card.appendChild(info);
     carouselEl.appendChild(card);
-    info.querySelector(".card__order").addEventListener("click", function (e) { e.stopPropagation(); window.open(U.tg("Хочу замовити: " + p.name + " — " + U.fmt(p.price)), "_blank", "noopener"); });
-    card.addEventListener("click", function () { window.open(U.tg("Хочу замовити: " + p.name + " — " + U.fmt(p.price)), "_blank", "noopener"); });
+    var orderMsg = I.t("ord.want") + ": " + U.name(p) + " — " + U.fmt(p.price);
+    info.querySelector(".card__order").addEventListener("click", function (e) { e.stopPropagation(); window.open(U.tg(orderMsg), "_blank", "noopener"); });
+    card.addEventListener("click", function () { window.open(U.tg(orderMsg), "_blank", "noopener"); });
     cards.push({ el: card, index: i });
   });
 
@@ -137,11 +138,18 @@
     var el = document.getElementById("cats");
     el.innerHTML = D.categories.map(function (c) {
       return '<a class="cat" href="#catalog" data-cat="' + c.id + '">' +
-        '<img src="../' + CAT_IMAGES[c.id] + '" alt="' + c.label + '" loading="lazy">' +
-        '<span class="cat-label">' + c.label + "</span></a>";
+        '<img src="../' + CAT_IMAGES[c.id] + '" alt="' + U.catLabel(c.id) + '" loading="lazy">' +
+        '<span class="cat-label">' + U.catLabel(c.id) + "</span></a>";
     }).join("");
     el.querySelectorAll(".cat").forEach(function (a) {
       a.addEventListener("click", function (e) { e.preventDefault(); state.category = a.dataset.cat; document.getElementById("f-cat").value = state.category; renderGrid(); });
+    });
+    var sel = document.getElementById("f-cat");
+    D.categories.forEach(function (c) {
+      var opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = U.catLabel(c.id);
+      sel.appendChild(opt);
     });
   }
 
@@ -166,7 +174,7 @@
   function renderGrid() {
     var grid = document.getElementById("grid");
     var list = filtered();
-    grid.innerHTML = list.map(U.cardHTML).join("") || '<p class="empty">Нічого не знайдено — скиньте фільтри.</p>';
+    grid.innerHTML = list.map(U.cardHTML).join("") || '<p class="empty">' + I.t("empty") + "</p>";
     grid.querySelectorAll(".btn-add").forEach(function (b) { b.addEventListener("click", function () { C.add(b.dataset.id, 1); }); });
   }
 

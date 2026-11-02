@@ -19,12 +19,13 @@
         <span>Girliandy</span>
       </a>
       <nav class="site-nav">
-        <a href="index.html">Головна</a>
-        <a href="index.html#catalog">Каталог</a>
-        <a href="about.html">Про нас</a>
-        <a href="delivery.html">Доставка та оплата</a>
-        <a href="contacts.html">Контакти</a>
+        <a href="index.html" data-i18n="nav.home">Головна</a>
+        <a href="index.html#catalog" data-i18n="nav.catalog">Каталог</a>
+        <a href="about.html" data-i18n="nav.about">Про нас</a>
+        <a href="delivery.html" data-i18n="nav.delivery">Доставка та оплата</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакти</a>
       </nav>
+      <div class="lang" role="group" aria-label="Мова"><button type="button" data-lang="uk">UA</button><button type="button" data-lang="ru">RU</button></div>
       <a class="site-cart" href="checkout.html" aria-label="Кошик">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span class="count" data-cart-count>0</span>
@@ -34,49 +35,50 @@
 
   <main class="page">
     <div class="page-hero">
-      <span class="kicker">Доставка та оплата</span>
-      <h1>Отримати замовлення — просто</h1>
-      <p class="lead">Відправляємо по всій Україні Новою поштою. Умови нижче — демонстраційні, фінальні уточнимо перед запуском.</p>
+      <span class="kicker" data-i18n="dv.kicker">Доставка та оплата</span>
+      <h1 data-i18n="dv.h1">Отримати замовлення — просто</h1>
+      <p class="lead" data-i18n="dv.lead">Відправляємо по всій Україні Новою поштою. Умови нижче — демонстраційні, фінальні уточнимо перед запуском.</p>
     </div>
 
     <div class="cards">
       <div class="card">
-        <h3>Доставка</h3>
+        <h3 data-i18n="dv.d1">Доставка</h3>
         <ul>
-          <li>Нова пошта — відділення або поштомат.</li>
-          <li>Відправка протягом 1–3 днів після підтвердження.</li>
-          <li>Вартість за тарифами перевізника.</li>
+          <li data-i18n="dv.d1a">Нова пошта — відділення або поштомат.</li>
+          <li data-i18n="dv.d1b">Відправка протягом 1–3 днів після підтвердження.</li>
+          <li data-i18n="dv.d1c">Вартість за тарифами перевізника.</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Оплата</h3>
+        <h3 data-i18n="dv.d2">Оплата</h3>
         <ul>
-          <li>Оплата при отриманні.</li>
-          <li>Передоплата на картку.</li>
-          <li>Онлайн-оплата — скоро.</li>
+          <li data-i18n="dv.d2a">Оплата при отриманні.</li>
+          <li data-i18n="dv.d2b">Передоплата на картку.</li>
+          <li data-i18n="dv.d2c">Онлайн-оплата — скоро.</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Обмін та повернення</h3>
+        <h3 data-i18n="dv.d3">Обмін та повернення</h3>
         <ul>
-          <li>14 днів на обмін або повернення.</li>
-          <li>Товар без слідів використання.</li>
-          <li>Зберігайте упаковку та чек.</li>
+          <li data-i18n="dv.d3a">14 днів на обмін або повернення.</li>
+          <li data-i18n="dv.d3b">Товар без слідів використання.</li>
+          <li data-i18n="dv.d3c">Зберігайте упаковку та чек.</li>
         </ul>
       </div>
     </div>
 
     <section class="page-section">
-      <h2>Як це працює</h2>
-      <p>Додаєте товари в кошик, оформлюєте замовлення на сайті — і ми бачимо його в Telegram. Підтверджуємо наявність, пакуємо й відправляємо. Вам лишається забрати посилку у зручному відділенні.</p>
+      <h2 data-i18n="dv.hw">Як це працює</h2>
+      <p data-i18n="dv.hwP">Додаєте товари в кошик, оформлюєте замовлення на сайті — і ми бачимо його в Telegram. Підтверджуємо наявність, пакуємо й відправляємо. Вам лишається забрати посилку у зручному відділенні.</p>
     </section>
   </main>
 
   <footer>
-    <span>Демо-магазин · ціни демонстраційні, не є публічною офертою</span>
-    <span>Фото © <a href="https://www.instagram.com/girliandy/" target="_blank" rel="noopener">@girliandy</a></span>
+    <span data-i18n="footer.demo">Демо-магазин · ціни демонстраційні, не є публічною офертою</span>
+    <span><span data-i18n="footer.photos">Фото ©</span> <a href="https://www.instagram.com/girliandy/" target="_blank" rel="noopener">@girliandy</a></span>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="cart.js"></script>
   <script>window.Cart.updateBadge();</script>
 </body>

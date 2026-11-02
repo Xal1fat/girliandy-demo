@@ -37,4 +37,4 @@
 .success { background: #fff; border-radius: 18px; padding: 40px 28px; text-align: center; }
 .success .num { font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 24px; color: #08482D; margin-top: 10px; }
 .success p { color: #5E5E61; margin-top: 12px; line-height: 1.6; }
-.success .btn-primary { margin-top: 22px; display: inline-flex; padding: 13px 26px; }
+.success .btn-primary { margin-top: 22px; display: inline-flex; padding: 13px 26px; background: #08482D; color: #fff; border-radius: 14px; font-weight: 600; text-decoration: none; }

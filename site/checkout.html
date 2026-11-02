@@ -19,12 +19,13 @@
         <span>Girliandy</span>
       </a>
       <nav class="site-nav">
-        <a href="index.html">Головна</a>
-        <a href="index.html#catalog">Каталог</a>
-        <a href="about.html">Про нас</a>
-        <a href="delivery.html">Доставка та оплата</a>
-        <a href="contacts.html">Контакти</a>
+        <a href="index.html" data-i18n="nav.home">Головна</a>
+        <a href="index.html#catalog" data-i18n="nav.catalog">Каталог</a>
+        <a href="about.html" data-i18n="nav.about">Про нас</a>
+        <a href="delivery.html" data-i18n="nav.delivery">Доставка та оплата</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакти</a>
       </nav>
+      <div class="lang" role="group" aria-label="Мова"><button type="button" data-lang="uk">UA</button><button type="button" data-lang="ru">RU</button></div>
       <a class="site-cart" href="checkout.html" aria-label="Кошик">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span class="count" data-cart-count>0</span>
@@ -33,81 +34,82 @@
   </header>
 
   <main class="checkout">
-    <h1>Оформлення замовлення</h1>
+    <h1 data-i18n="co.h1">Оформлення замовлення</h1>
 
     <div class="checkout__layout" data-layout>
       <div class="cart-box">
-        <h2>Кошик</h2>
+        <h2 data-i18n="co.cart">Кошик</h2>
         <div data-cart-items></div>
-        <div class="total"><span>Разом</span><strong data-total>0 ₴</strong></div>
+        <div class="total"><span data-i18n="co.total">Разом</span><strong data-total>0 ₴</strong></div>
       </div>
 
       <form class="form-box" data-form novalidate>
-        <h2>Дані для доставки</h2>
+        <h2 data-i18n="co.form">Дані для доставки</h2>
         <div class="form-grid">
           <div class="field" data-field="name">
-            <label for="f-name">Ім'я та прізвище <b>*</b></label>
-            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Ім'я Прізвище">
-            <span class="err">Вкажіть ім'я та прізвище</span>
+            <label for="f-name"><span data-i18n="co.name">Ім'я та прізвище</span> <b>*</b></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" data-i18n-ph="co.namePh" placeholder="Ім'я Прізвище">
+            <span class="err" data-i18n="co.errName">Вкажіть ім'я та прізвище</span>
           </div>
           <div class="field" data-field="phone">
-            <label for="f-phone">Телефон <b>*</b></label>
+            <label for="f-phone"><span data-i18n="co.phone">Телефон</span> <b>*</b></label>
             <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 99 000 00 00">
-            <span class="err">Вкажіть коректний номер</span>
+            <span class="err" data-i18n="co.errPhone">Вкажіть коректний номер</span>
           </div>
           <div class="field" data-field="city">
-            <label for="f-city">Місто <b>*</b></label>
-            <input id="f-city" name="city" type="text" autocomplete="address-level2" placeholder="Місто">
-            <span class="err">Вкажіть місто</span>
+            <label for="f-city"><span data-i18n="co.city">Місто</span> <b>*</b></label>
+            <input id="f-city" name="city" type="text" autocomplete="address-level2" data-i18n-ph="co.cityPh" placeholder="Місто">
+            <span class="err" data-i18n="co.errCity">Вкажіть місто</span>
           </div>
           <div class="field" data-field="delivery">
-            <label for="f-delivery">Спосіб доставки <b>*</b></label>
+            <label for="f-delivery"><span data-i18n="co.delivery">Спосіб доставки</span> <b>*</b></label>
             <select id="f-delivery" name="delivery">
-              <option value="">Оберіть</option>
-              <option value="Нова пошта — відділення">Нова пошта — відділення</option>
-              <option value="Нова пошта — поштомат">Нова пошта — поштомат</option>
-              <option value="Кур'єр Нова пошта">Кур'єр Нова пошта</option>
+              <option value="" data-i18n="co.choose">Оберіть</option>
+              <option value="Нова пошта — відділення" data-i18n="co.del1">Нова пошта — відділення</option>
+              <option value="Нова пошта — поштомат" data-i18n="co.del2">Нова пошта — поштомат</option>
+              <option value="Кур'єр Нова пошта" data-i18n="co.del3">Кур'єр Нова пошта</option>
             </select>
-            <span class="err">Оберіть спосіб доставки</span>
+            <span class="err" data-i18n="co.errDelivery">Оберіть спосіб доставки</span>
           </div>
           <div class="field" data-field="address">
-            <label for="f-address">Відділення / поштомат або адреса <b>*</b></label>
-            <input id="f-address" name="address" type="text" placeholder="№ відділення або адреса">
-            <span class="err">Вкажіть відділення або адресу</span>
+            <label for="f-address"><span data-i18n="co.address">Відділення / поштомат або адреса</span> <b>*</b></label>
+            <input id="f-address" name="address" type="text" data-i18n-ph="co.addressPh" placeholder="№ відділення або адреса">
+            <span class="err" data-i18n="co.errAddress">Вкажіть відділення або адресу</span>
           </div>
           <div class="field" data-field="payment">
-            <label for="f-payment">Оплата <b>*</b></label>
+            <label for="f-payment"><span data-i18n="co.payment">Оплата</span> <b>*</b></label>
             <select id="f-payment" name="payment">
-              <option value="">Оберіть</option>
-              <option value="Оплата при отриманні">Оплата при отриманні</option>
-              <option value="Передоплата на картку">Передоплата на картку</option>
+              <option value="" data-i18n="co.choose">Оберіть</option>
+              <option value="Оплата при отриманні" data-i18n="co.pay1">Оплата при отриманні</option>
+              <option value="Передоплата на картку" data-i18n="co.pay2">Передоплата на картку</option>
             </select>
-            <span class="err">Оберіть спосіб оплати</span>
+            <span class="err" data-i18n="co.errPayment">Оберіть спосіб оплати</span>
           </div>
         </div>
         <div class="field">
-          <label for="f-comment">Коментар до замовлення</label>
-          <textarea id="f-comment" name="comment" placeholder="Наприклад: зателефонуйте перед доставкою"></textarea>
+          <label for="f-comment" data-i18n="co.comment">Коментар до замовлення</label>
+          <textarea id="f-comment" name="comment" data-i18n-ph="co.commentPh" placeholder="Наприклад: зателефонуйте перед доставкою"></textarea>
         </div>
-        <button class="submit" type="submit">Підтвердити замовлення</button>
+        <button class="submit" type="submit" data-i18n="co.submit">Підтвердити замовлення</button>
       </form>
     </div>
 
     <div class="success" data-success hidden>
       <div style="font-size:44px;">🎉</div>
-      <h2>Дякуємо! Замовлення прийнято</h2>
+      <h2 data-i18n="co.success">Дякуємо! Замовлення прийнято</h2>
       <div class="num" data-order-num></div>
-      <p>Ми надіслали ваше замовлення. Зв'яжемося з вами найближчим часом для підтвердження.</p>
-      <a class="btn-primary" href="index.html">Повернутися на головну</a>
+      <p data-i18n="co.successP">Ми надіслали ваше замовлення. Зв'яжемося з вами найближчим часом для підтвердження.</p>
+      <a class="btn-primary" href="index.html" data-i18n="co.back">Повернутися на головну</a>
     </div>
   </main>
 
   <footer>
-    <span>Демо-магазин · ціни демонстраційні, не є публічною офертою</span>
-    <span>Фото © <a href="https://www.instagram.com/girliandy/" target="_blank" rel="noopener">@girliandy</a></span>
+    <span data-i18n="footer.demo">Демо-магазин · ціни демонстраційні, не є публічною офертою</span>
+    <span><span data-i18n="footer.photos">Фото ©</span> <a href="https://www.instagram.com/girliandy/" target="_blank" rel="noopener">@girliandy</a></span>
   </footer>
 
   <script src="data.js"></script>
+  <script src="i18n.js"></script>
   <script src="ui.js"></script>
   <script src="cart.js"></script>
   <script src="checkout.js"></script>

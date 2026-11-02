@@ -27,7 +27,10 @@
           <svg class="logo__icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 4 C 8 4, 4 9, 4 16 C 4 21, 8 25, 14 25 C 20 25, 24 21, 24 16 C 24 9, 20 4, 14 4 Z" fill="#08482D"/><path d="M14 25 C 14 18, 16 12, 22 8" stroke="#F5F8EF" stroke-width="2" stroke-linecap="round"/></svg>
           <span>Girliandy</span>
         </a>
-        <a href="#order" class="btn btn--signup">Замовити</a>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="lang" role="group" aria-label="Мова"><button type="button" data-lang="uk">UA</button><button type="button" data-lang="ru">RU</button></div>
+          <a href="#order" class="btn btn--signup" data-i18n="nav.order">Замовити</a>
+        </div>
       </div>
 
       <a href="#" class="logo logo--desktop" aria-label="Girliandy">
@@ -36,111 +39,107 @@
       </a>
 
       <nav class="nav" aria-label="Головна навігація">
-        <a href="#top">Головна</a>
-        <a href="#catalog">Каталог</a>
-        <a href="#about">Про нас</a>
-        <a href="#delivery">Доставка та оплата</a>
-        <a href="#contacts">Контакти</a>
+        <a href="#top" data-i18n="nav.home">Головна</a>
+        <a href="#catalog" data-i18n="nav.catalog">Каталог</a>
+        <a href="about.html" data-i18n="nav.about">Про нас</a>
+        <a href="delivery.html" data-i18n="nav.delivery">Доставка та оплата</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакти</a>
+        <div class="lang" role="group" aria-label="Мова"><button type="button" data-lang="uk">UA</button><button type="button" data-lang="ru">RU</button></div>
       </nav>
 
       <a href="checkout.html" class="btn btn--cart" aria-label="Кошик">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span class="count" data-cart-count>0</span>
       </a>
-      <a href="#order" class="btn btn--signup btn--desktop">Замовити</a>
+      <a href="#order" class="btn btn--signup btn--desktop" data-i18n="nav.order">Замовити</a>
 
-      <div class="badge">Створюємо затишок у кожному куточку</div>
+      <div class="badge" data-i18n="hero.badge">Створюємо затишок у кожному куточку</div>
 
       <h1 class="headline">
-        <span class="headline__line">Світло, що робить дім</span>
-        <span class="headline__line">— домом</span>
+        <span class="headline__line" data-i18n="hero.h1a">Світло, що робить дім</span>
+        <span class="headline__line" data-i18n="hero.h1b">— домом</span>
       </h1>
 
-      <p class="subline">Гірлянди, лампи та декор, які перетворюють звичайний простір<br>на місце, куди хочеться повертатися.</p>
+      <p class="subline" data-i18n="hero.sub">Гірлянди, лампи та декор, які перетворюють звичайний простір на місце, куди хочеться повертатися.</p>
 
-      <div class="note note--more">Більше затишку →</div>
-      <div class="note note--space">Твій особливий простір ↗</div>
+      <div class="note note--more" data-i18n="hero.note1">Більше затишку →</div>
+      <div class="note note--space" data-i18n="hero.note2">Твій особливий простір ↗</div>
 
       <div class="carousel-wrap" id="carousel"></div>
 
       <div class="cta-wrap">
         <div class="cta-ring"></div>
-        <a href="#catalog" class="cta-btn">Переглянути каталог</a>
+        <a href="#catalog" class="cta-btn" data-i18n="hero.cta">Переглянути каталог</a>
       </div>
     </div>
   </section>
 
   <section class="catalog" id="catalog">
     <div class="container">
-      <h2>Знайди своє світло</h2>
-      <p class="lead">Обирай деталі, які створюють атмосферу</p>
+      <h2 data-i18n="cat.h2">Знайди своє світло</h2>
+      <p class="lead" data-i18n="cat.lead">Обирай деталі, які створюють атмосферу</p>
 
       <div class="cats" id="cats"></div>
 
       <div class="toolbar">
         <div class="filters" id="filters">
           <div class="field">
-            <label for="f-cat">Категорія</label>
+            <label for="f-cat" data-i18n="f.category">Категорія</label>
             <select id="f-cat">
-              <option value="">Усі категорії</option>
-              <option value="hirliandy">Гірлянди</option>
-              <option value="lampy">Лампи</option>
-              <option value="proektory">Проєктори</option>
-              <option value="pledy">Пледи з підігрівом</option>
-              <option value="dekor">Декор та аксесуари</option>
+              <option value="" data-i18n="f.allcat">Усі категорії</option>
             </select>
           </div>
           <div class="field">
-            <label for="f-power">Живлення</label>
+            <label for="f-power" data-i18n="f.power">Живлення</label>
             <select id="f-power">
-              <option value="">Будь-яке</option>
+              <option value="" data-i18n="f.any">Будь-яке</option>
               <option value="batteries">Батарейки</option>
               <option value="usb">USB</option>
-              <option value="solar">Сонце</option>
+              <option value="solar" data-i18n="pow.solar">Сонце</option>
               <option value="220v">220 V</option>
-              <option value="powerbank">Павербанк</option>
+              <option value="powerbank" data-i18n="pow.powerbank">Павербанк</option>
             </select>
           </div>
           <div class="field">
-            <label for="f-place">Де</label>
+            <label for="f-place" data-i18n="f.place">Де</label>
             <select id="f-place">
-              <option value="">Будь-де</option>
-              <option value="home">Для дому</option>
-              <option value="outdoor">Для вулиці</option>
+              <option value="" data-i18n="f.anywhere">Будь-де</option>
+              <option value="home" data-i18n="f.home">Для дому</option>
+              <option value="outdoor" data-i18n="f.outdoor">Для вулиці</option>
             </select>
           </div>
           <div class="field">
-            <label for="f-color">Світло</label>
+            <label for="f-color" data-i18n="f.color">Світло</label>
             <select id="f-color">
-              <option value="">Будь-яке</option>
-              <option value="тепле">Тепле</option>
-              <option value="нейтральне">Нейтральне</option>
-              <option value="кольорове">Кольорове</option>
+              <option value="" data-i18n="f.anycolor">Будь-яке світло</option>
+              <option value="тепле" data-i18n="f.тепле">Тепле</option>
+              <option value="нейтральне" data-i18n="f.нейтральне">Нейтральне</option>
+              <option value="кольорове" data-i18n="f.кольорове">Кольорове</option>
             </select>
           </div>
           <div class="field">
-            <label for="f-avail">Наявність</label>
+            <label for="f-avail" data-i18n="f.avail">Наявність</label>
             <select id="f-avail">
-              <option value="">Усі</option>
-              <option value="in">В наявності</option>
+              <option value="" data-i18n="f.all">Усі</option>
+              <option value="in" data-i18n="f.in">В наявності</option>
             </select>
           </div>
           <div class="field">
-            <label for="f-min">Ціна від, ₴</label>
+            <label for="f-min" data-i18n="f.min">Ціна від, ₴</label>
             <input class="range" id="f-min" type="number" min="0" placeholder="0">
           </div>
           <div class="field">
-            <label for="f-max">Ціна до, ₴</label>
+            <label for="f-max" data-i18n="f.max">Ціна до, ₴</label>
             <input class="range" id="f-max" type="number" min="0" placeholder="2000">
           </div>
         </div>
         <div class="field sort">
-          <label for="f-sort">Сортування</label>
+          <label for="f-sort" data-i18n="f.sort">Сортування</label>
           <select id="f-sort">
-            <option value="popular">Популярні</option>
-            <option value="cheap">Спочатку дешеві</option>
-            <option value="expensive">Спочатку дорогі</option>
-            <option value="new">Новинки</option>
+            <option value="popular" data-i18n="f.popular">Популярні</option>
+            <option value="cheap" data-i18n="f.cheap">Спочатку дешеві</option>
+            <option value="expensive" data-i18n="f.expensive">Спочатку дорогі</option>
+            <option value="new" data-i18n="f.new">Новинки</option>
           </select>
         </div>
       </div>
@@ -150,11 +149,12 @@
   </section>
 
   <footer>
-    <span>Демо-магазин · ціни демонстраційні, не є публічною офертою</span>
-    <span>Фото © <a href="https://www.instagram.com/girliandy/" target="_blank" rel="noopener">@girliandy</a></span>
+    <span data-i18n="footer.demo">Демо-магазин · ціни демонстраційні, не є публічною офертою</span>
+    <span><span data-i18n="footer.photos">Фото ©</span> <a href="https://www.instagram.com/girliandy/" target="_blank" rel="noopener">@girliandy</a></span>
   </footer>
 
   <script src="data.js"></script>
+  <script src="i18n.js"></script>
   <script src="ui.js"></script>
   <script src="cart.js"></script>
   <script src="app.js"></script>

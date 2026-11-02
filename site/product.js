@@ -1,11 +1,11 @@
 (function () {
   "use strict";
-  var D = window.GIRLIANDY, U = window.UI, C = window.Cart;
+  var D = window.GIRLIANDY, U = window.UI, C = window.Cart, I = window.I18N;
 
   var slug = new URLSearchParams(location.search).get("slug");
   var p = D.products.find(function (x) { return x.slug === slug; }) || D.products[0];
-  document.title = p.name + " — Girliandy";
-  document.querySelector("[data-bc-name]").textContent = p.name;
+  document.title = U.name(p) + " — Girliandy";
+  document.querySelector("[data-bc-name]").textContent = U.name(p);
 
   /* Галерея */
   var main = document.querySelector("[data-main]");
@@ -13,7 +13,7 @@
   main.src = "../" + p.images[0].src;
   main.alt = p.images[0].alt;
   thumbs.innerHTML = p.images.map(function (im, i) {
-    return '<button type="button" class="' + (i === 0 ? "active" : "") + '" data-i="' + i + '" aria-label="Фото ' + (i + 1) + '"><img src="../' + im.src + '" alt=""></button>';
+    return '<button type="button" class="' + (i === 0 ? "active" : "") + '" data-i="' + i + '" aria-label="' + I.t("p.photo") + " " + (i + 1) + '"><img src="../' + im.src + '" alt=""></button>';
   }).join("");
   thumbs.querySelectorAll("button").forEach(function (b) {
     b.addEventListener("click", function () {
@@ -34,20 +34,20 @@
   /* Інформація */
   var qty = 1;
   var sale = p.oldPrice ? '<span class="old">' + U.fmt(p.oldPrice) + "</span>" + '<span class="save">−' + U.discount(p) + "%</span>" : "";
-  var stock = p.stock > 0 ? '<span class="stock">В наявності — ' + p.stock + ' шт</span>' : '<span class="stock out">Немає в наявності</span>';
-  var specs = p.specs.map(function (s) { return "<li>" + s + "</li>"; }).join("");
+  var stock = p.stock > 0 ? '<span class="stock">' + I.t("p.stockIn") + p.stock + " шт</span>" : '<span class="stock out">' + I.t("p.stockOut") + "</span>";
+  var specs = U.specs(p).map(function (s) { return "<li>" + s + "</li>"; }).join("");
 
   var info = document.querySelector("[data-info]");
   info.innerHTML =
     '<span class="cat">' + U.catLabel(p.category) + "</span>" +
-    "<h1>" + p.name + "</h1>" +
+    "<h1>" + U.name(p) + "</h1>" +
     '<div class="prices"><span class="price">' + U.fmt(p.price) + "</span>" + sale + "</div>" + stock +
-    '<p class="desc">' + p.description + "</p>" +
+    '<p class="desc">' + U.desc(p) + "</p>" +
     '<ul class="specs">' + specs + "</ul>" +
-    '<div class="qty"><button type="button" data-dec aria-label="Зменшити кількість">−</button><span data-qty>1</span><button type="button" data-inc aria-label="Збільшити кількість">+</button></div>' +
-    '<div class="actions"><button class="btn-primary" type="button" data-add>Додати в кошик</button>' +
-    '<a class="btn-ghost" href="' + U.tg("Хочу замовити: " + p.name + " — " + U.fmt(p.price)) + '" target="_blank" rel="noopener">Замовити зараз</a></div>' +
-    '<div class="delivery"><b>Доставка:</b> Нова пошта по Україні, 1–3 дні.<br><b>Оплата:</b> при отриманні або передоплата.<br><i>Демо-умови, уточнюються.</i></div>';
+    '<div class="qty"><button type="button" data-dec aria-label="' + I.t("co.dec") + '">−</button><span data-qty>1</span><button type="button" data-inc aria-label="' + I.t("co.inc") + '">+</button></div>' +
+    '<div class="actions"><button class="btn-primary" type="button" data-add>' + I.t("p.add") + "</button>" +
+    '<a class="btn-ghost" href="' + U.tg(I.t("ord.want") + ": " + U.name(p) + " — " + U.fmt(p.price)) + '" target="_blank" rel="noopener">' + I.t("p.order") + "</a></div>" +
+    '<div class="delivery"><b>' + I.t("p.delivery") + '</b><br><b>' + I.t("p.payment") + '</b><br><i>' + I.t("p.demo") + "</i></div>";
 
   var qtyEl = info.querySelector("[data-qty]");
   info.querySelector("[data-dec]").addEventListener("click", function () { if (qty > 1) qty--; qtyEl.textContent = qty; });
@@ -56,16 +56,10 @@
   info.querySelector("[data-add]").addEventListener("click", function () {
     C.add(p.id, qty);
     var toast = document.querySelector("[data-toast]");
-    toast.textContent = "Додано в кошик: " + p.name + " ×" + qty;
+    toast.textContent = I.t("card.add") + ": " + U.name(p) + " ×" + qty;
     toast.classList.add("show");
     setTimeout(function () { toast.classList.remove("show"); }, 2200);
   });
-
-  /* Схожі товари */
-  var similar = D.products.filter(function (x) { return x.category === p.category && x.id !== p.id; }).slice(0, 4);
-  var simEl = document.querySelector("[data-similar]");
-  simEl.innerHTML = similar.map(U.cardHTML).join("") || '<p class="empty">Схожих товарів поки немає.</p>';
-  simEl.querySelectorAll(".btn-add").forEach(function (b) { b.addEventListener("click", function () { C.add(b.dataset.id, 1); }); });
 
   /* SEO: Product schema */
   var seo = document.createElement("script");
@@ -73,18 +67,19 @@
   seo.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Product",
-    name: p.name,
+    name: U.name(p),
     image: p.images.map(function (im) { return new URL("../" + im.src, location.href).href; }),
-    description: p.description,
+    description: U.desc(p),
     brand: { "@type": "Brand", name: "Girliandy" },
-    offers: {
-      "@type": "Offer",
-      price: p.price,
-      priceCurrency: "UAH",
-      availability: "https://schema.org/" + (p.stock > 0 ? "InStock" : "OutOfStock")
-    }
+    offers: { "@type": "Offer", price: p.price, priceCurrency: "UAH", availability: "https://schema.org/" + (p.stock > 0 ? "InStock" : "OutOfStock") }
   });
   document.head.appendChild(seo);
+
+  /* Схожі товари */
+  var similar = D.products.filter(function (x) { return x.category === p.category && x.id !== p.id; }).slice(0, 4);
+  var simEl = document.querySelector("[data-similar]");
+  simEl.innerHTML = similar.map(U.cardHTML).join("") || '<p class="empty">' + I.t("p.noSimilar") + "</p>";
+  simEl.querySelectorAll(".btn-add").forEach(function (b) { b.addEventListener("click", function () { C.add(b.dataset.id, 1); }); });
 
   C.updateBadge();
 })();
