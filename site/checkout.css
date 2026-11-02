@@ -1,0 +1,40 @@
+/* Girliandy — кошик та оформлення замовлення. */
+.checkout { max-width: 1080px; margin: 28px auto 0; padding: 0 20px; }
+.checkout h1 { font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.02em; }
+.checkout__layout { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 26px; }
+@media (min-width: 880px) { .checkout__layout { grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: start; } }
+
+.cart-box { background: #fff; border-radius: 18px; padding: 22px; }
+.cart-box h2, .form-box h2 { font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 19px; margin-bottom: 16px; }
+.cart-line { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(8,72,45,0.08); }
+.cart-line:last-child { border-bottom: 0; }
+.cart-line img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+.cart-line .meta { flex: 1; min-width: 0; }
+.cart-line .name { font-weight: 600; font-size: 14px; line-height: 1.25; }
+.cart-line .price { font-size: 13px; color: #08482D; font-weight: 600; margin-top: 2px; }
+.qty { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
+.qty button { width: 26px; height: 26px; border: 1px solid rgba(8,72,45,0.2); border-radius: 8px; background: #fff; color: #08482D; font-weight: 600; }
+.qty span { min-width: 16px; text-align: center; font-size: 14px; }
+.cart-line .remove { border: 0; background: none; color: #c23b2e; font-size: 12px; text-decoration: underline; flex-shrink: 0; }
+.cart-empty { color: #5E5E61; text-align: center; padding: 28px 0; }
+.total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(8,72,45,0.12); font-size: 15px; }
+.total strong { font-size: 22px; color: #08482D; }
+
+.form-box { background: #fff; border-radius: 18px; padding: 22px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: 13px; color: #5E5E61; font-weight: 500; }
+.field label b { color: #c23b2e; }
+.field input, .field select, .field textarea { border: 1px solid rgba(8,72,45,0.18); border-radius: 12px; padding: 12px 13px; font-size: 15px; font-family: inherit; background: #fff; }
+.field textarea { min-height: 70px; resize: vertical; }
+.field .err { font-size: 12px; color: #c23b2e; display: none; }
+.field.invalid input, .field.invalid select { border-color: #c23b2e; }
+.field.invalid .err { display: block; }
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 0 14px; }
+@media (min-width: 560px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+.submit { width: 100%; border: 0; border-radius: 14px; padding: 15px; background: #08482D; color: #fff; font-weight: 600; font-size: 16px; margin-top: 6px; }
+.submit:hover { background: #0b5c39; }
+
+.success { background: #fff; border-radius: 18px; padding: 40px 28px; text-align: center; }
+.success .num { font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 24px; color: #08482D; margin-top: 10px; }
+.success p { color: #5E5E61; margin-top: 12px; line-height: 1.6; }
+.success .btn-primary { margin-top: 22px; display: inline-flex; padding: 13px 26px; }

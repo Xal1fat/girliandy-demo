@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xal1fat.github.io/girliandy-demo/site/sitemap.xml
