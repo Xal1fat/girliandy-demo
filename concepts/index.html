@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girliandy — 5 дизайн-концептів</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+  body { background:#0c0b0a; color:#f4f1ea; font-family:Inter, system-ui, sans-serif; }
+  .wrap { max-width:1120px; margin:0 auto; padding:clamp(28px, 6vw, 72px) clamp(20px, 5vw, 40px); }
+  .head { max-width:60ch; }
+  h1 { font-family:'Space Grotesk', Inter, sans-serif; font-size:clamp(30px, 5vw, 54px); line-height:1.04; letter-spacing:-.03em; font-weight:600; }
+  .lead { margin-top:14px; color:#a89f90; font-size:16px; max-width:52ch; }
+  .grid { margin-top:clamp(32px, 5vw, 48px); display:grid; gap:20px; }
+  @media(min-width:700px){ .grid { grid-template-columns:repeat(2, 1fr); } }
+  @media(min-width:1000px){ .grid { grid-template-columns:repeat(3, 1fr); } }
+  .card { background:#151310; border-radius:18px; overflow:hidden; display:flex; flex-direction:column; box-shadow:inset 0 0 0 1px rgba(244,241,234,.08); }
+  .cover { position:relative; aspect-ratio:16/11; overflow:hidden; }
+  .cover img { width:100%; height:100%; object-fit:cover; }
+  .cover .tint { position:absolute; inset:0; }
+  .num { position:absolute; left:14px; top:10px; font-family:'Space Grotesk'; font-weight:700; font-size:30px; color:#fff; text-shadow:0 2px 14px rgba(0,0,0,.55); }
+  .body { padding:18px 20px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  h2 { font-family:'Space Grotesk', Inter, sans-serif; font-size:20px; font-weight:600; letter-spacing:-.01em; }
+  p { color:#a89f90; font-size:14px; line-height:1.55; }
+  .open { margin-top:auto; padding-top:12px; font-weight:600; font-size:14px; color:#e3c881; }
+  .foot { margin-top:clamp(28px, 4vw, 40px); color:#8a8375; font-size:13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <h1>Girliandy — 5 дизайн-концептів</h1>
+    <p class="lead">Один екран на напрямок: hero + шматок каталогу. Оберіть номер (1–5) або напишіть, які напрямки змішати.</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="01-nich-i-svitlo.html">
+      <div class="cover">
+        <img src="../assets/ig/06-curtain-garland-post-1.jpg" alt="Гірлянда-штора з теплими вогниками">
+        <span class="tint" style="background:linear-gradient(180deg, rgba(8,8,7,.05), rgba(8,8,7,.6));"></span>
+        <span class="num">1</span>
+      </div>
+      <div class="body">
+        <h2>Ніч і світло</h2>
+        <p>Темний преміум: графіт і ніч, гірлянди як світлі лінії, великі фото, стримана Apple-подача.</p>
+        <span class="open">Відкрити концепт</span>
+      </div>
+    </a>
+
+    <a class="card" href="02-teplo-domu.html">
+      <div class="cover">
+        <img src="../assets/ig/09-curtain-garland-awaited.jpg" alt="Тепла гірлянда біля ліжка">
+        <span class="tint" style="background:linear-gradient(180deg, rgba(236,232,226,.25), rgba(97,67,48,.5));"></span>
+        <span class="num">2</span>
+      </div>
+      <div class="body">
+        <h2>Тепло дому</h2>
+        <p>Затишний теплий: кремово-янтарний, м'яке світло, інтер'єри, відчуття ностальгії.</p>
+        <span class="open">Відкрити концепт</span>
+      </div>
+    </a>
+
+    <a class="card" href="03-vitryna.html">
+      <div class="cover">
+        <img src="../assets/ig/14-portable-projector.jpg" alt="Портативний проєктор на столі">
+        <span class="tint" style="background:linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,0));"></span>
+        <span class="num">3</span>
+      </div>
+      <div class="body">
+        <h2>Вітрина</h2>
+        <p>Світлий мінімалізм: білий і сірий, багато повітря, товар і ціна на першому плані.</p>
+        <span class="open">Відкрити концепт</span>
+      </div>
+    </a>
+
+    <a class="card" href="04-redaktsiya.html">
+      <div class="cover">
+        <img src="../assets/ig/05-curtain-garland-post-2.jpg" alt="Штора з гірляндою та дзеркалом" style="filter:grayscale(1) contrast(1.08);">
+        <span class="tint" style="background:linear-gradient(180deg, rgba(10,10,10,.1), rgba(10,10,10,.62));"></span>
+        <span class="num">4</span>
+      </div>
+      <div class="body">
+        <h2>Редакція</h2>
+        <p>Журнальний: велика типографіка, асиметрична сітка, високий контраст.</p>
+        <span class="open">Відкрити концепт</span>
+      </div>
+    </a>
+
+    <a class="card" href="05-neon.html">
+      <div class="cover">
+        <img src="../assets/ig/07-decor-lantern-string.jpg" alt="Декоративний ліхтар у нічній зелені">
+        <span class="tint" style="background:linear-gradient(135deg, rgba(255,60,210,.35), rgba(0,229,255,.3));"></span>
+        <span class="num">5</span>
+      </div>
+      <div class="body">
+        <h2>Неон</h2>
+        <p>Вечірній, молодіжний: темний фон і неонові акценти, динаміка, ефект «вау».</p>
+        <span class="open">Відкрити концепт</span>
+      </div>
+    </a>
+  </div>
+
+  <p class="foot">Фото — з Instagram @girliandy · ціни демонстраційні</p>
+</div>
+</body>
+</html>

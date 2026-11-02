@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girliandy — світло та затишок | Гірлянди, лампи, пледи</title>
+<meta name="description" content="Гірлянди, сонячні світильники, пледи з підігрівом, проєктори та павербанки. Світло й затишок для дому та двору — замовлення в Telegram.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Girliandy — світло та затишок">
+<meta property="og:description" content="Гірлянди, лампи, пледи з підігрівом і проєктори. Тепле світло для дому та двору.">
+<meta property="og:image" content="assets/ig/06-curtain-garland-clean.jpg">
+<meta name="theme-color" content="#0a0a0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Girliandy",
+  "description": "Світло та затишок: гірлянди, світильники, пледи з підігрівом.",
+  "sameAs": ["https://www.instagram.com/girliandy/"]
+}
+</script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">Girliandy <small>світло та затишок</small></a>
+    <div class="nav-links">
+      <a href="#catalog">Каталог</a>
+      <button class="cart-btn" type="button" data-cart-open aria-label="Відкрити кошик">
+        Кошик <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Світло, що робить дім — домом.</h1>
+        <p class="sub">Гірлянди, лампи, пледи з підігрівом і проєктори — усе, щоб удома було тепло й красиво. Без зайвих розеток.</p>
+        <div class="actions">
+          <a class="btn" href="#catalog">Дивитися каталог</a>
+          <a class="btn ghost" href="https://t.me/girliandy" target="_blank" rel="noopener">Написати нам</a>
+        </div>
+        <div class="chips" data-category-chips aria-label="Категорії"></div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/ig/06-curtain-garland-clean.jpg" width="590" height="660" alt="Гірлянда-штора з теплими вогниками на всій стіні штор" fetchpriority="high">
+      </figure>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="catalog-head">
+        <h2>Каталог</h2>
+        <span class="count" data-result-count aria-live="polite"></span>
+      </div>
+
+      <form class="filters" data-filters>
+        <div class="filter-field">
+          <label for="f-power">Живлення</label>
+          <select id="f-power" name="power">
+            <option value="">Будь-яке</option>
+            <option value="batteries">Батарейки</option>
+            <option value="usb">USB</option>
+            <option value="solar">Сонце</option>
+            <option value="220v">220 V</option>
+            <option value="powerbank">Павербанк</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="f-place">Де</label>
+          <select id="f-place" name="place">
+            <option value="">Будь-де</option>
+            <option value="home">Для дому</option>
+            <option value="outdoor">Для вулиці</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="f-price">Ціна</label>
+          <select id="f-price" name="price">
+            <option value="">Будь-яка</option>
+            <option value="0-500">до 500 ₴</option>
+            <option value="500-1000">500–1000 ₴</option>
+            <option value="1000-1500">1000–1500 ₴</option>
+            <option value="1500-">від 1500 ₴</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="grid" data-grid></div>
+      <p class="empty" data-empty hidden>Нічого не знайдено — скиньте фільтри.</p>
+    </section>
+
+    <section class="help">
+      <h2>Не знаєте, що обрати?</h2>
+      <p>Напишіть нам — підберемо світло під вашу кімнату чи двір.</p>
+      <a class="btn" href="https://t.me/girliandy" target="_blank" rel="noopener">Підібрати світло</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>Демо-магазин · ціни демонстраційні, не є публічною офертою</span>
+    <span>Фото © <a href="https://www.instagram.com/girliandy/" target="_blank" rel="noopener">@girliandy</a></span>
+  </footer>
+
+  <div class="modal" data-modal hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Картка товару">
+      <button class="modal-x" type="button" data-modal-close aria-label="Закрити">×</button>
+      <div class="modal-body" data-modal-body></div>
+    </div>
+  </div>
+
+  <div class="drawer" data-cart hidden>
+    <div class="drawer-backdrop" data-cart-close></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Кошик">
+      <div class="drawer-head">
+        <h2>Кошик</h2>
+        <button class="modal-x" type="button" data-cart-close aria-label="Закрити">×</button>
+      </div>
+      <div class="drawer-items" data-cart-items></div>
+      <div class="drawer-foot">
+        <div class="total"><span>Разом</span><strong data-cart-total>0 ₴</strong></div>
+        <button class="btn btn-block" type="button" data-cart-order>Оформити в Telegram</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

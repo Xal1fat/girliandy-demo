@@ -1,0 +1,39 @@
+/* Спільна база для 5 концептів Girliandy: reset + токени палітри, виміряні з фото Instagram. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; line-height: 1.5; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+
+:root {
+  --night: #080707;
+  --night-soft: #0e0f12;
+  --stone: #ad9c88;
+  --stone-light: #c5b9a9;
+  --cream: #ecece8;
+  --wood: #614330;
+  --wood-light: #9b774f;
+  --glow: #e3c881;
+  --glow-soft: #e1c47d;
+  --olive: #aeb438;
+  --red: #d6453b;
+  --yellow: #e8c63a;
+  --dusk: #7b8e9f;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+:focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girliandy — «Редакція»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root { --bg:#fbfaf6; --ink:#141414; --muted:#6f6a61; --accent:#c9862e; --line:rgba(20,20,20,.18); }
+  body { background:var(--bg); color:var(--ink); font-family:'Space Grotesk', Inter, system-ui, sans-serif; }
+
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:22px clamp(20px, 5vw, 56px); }
+  .brand { font-family:'Playfair Display', serif; font-weight:700; font-size:20px; }
+  .brand small { display:block; font-family:'Space Grotesk'; font-weight:400; font-size:12px; color:var(--muted); }
+  .nav-link { font-size:14px; border-bottom:1px solid var(--line); padding-bottom:2px; }
+
+  .hero { padding:clamp(24px, 5vw, 56px) clamp(20px, 5vw, 56px) clamp(32px, 6vw, 64px); }
+  .masthead { border-top:3px solid var(--ink); border-bottom:1px solid var(--line); padding:clamp(18px, 4vw, 40px) 0; }
+  h1 { font-family:'Playfair Display', serif; font-weight:900; font-size:clamp(44px, 9vw, 120px); line-height:.94; letter-spacing:-.03em; }
+  h1 em { font-family:'Playfair Display', serif; font-style:italic; font-weight:500; color:var(--accent); }
+  .meta { margin-top:clamp(14px, 2.4vw, 24px); display:flex; flex-wrap:wrap; gap:8px 28px; font-size:13px; color:var(--muted); }
+  .meta span { border-bottom:1px solid var(--line); padding-bottom:2px; }
+  .lead { margin-top:18px; font-family:'Playfair Display', serif; font-style:italic; font-size:clamp(18px, 2.6vw, 26px); color:var(--ink); max-width:40ch; }
+  .hero-img { margin-top:clamp(20px, 4vw, 40px); border-radius:4px; overflow:hidden; }
+  .hero-img img { width:100%; aspect-ratio:16/8; object-fit:cover; filter:grayscale(.15) contrast(1.02); }
+
+  .catalog { padding:0 clamp(20px, 5vw, 56px) 0; }
+  .catalog-head { display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:22px; }
+  h2 { font-family:'Playfair Display', serif; font-size:clamp(26px, 3.6vw, 40px); font-weight:700; }
+  .more { font-size:14px; color:var(--muted); border-bottom:1px solid var(--line); }
+
+  .grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; }
+  @media(min-width:900px){ .grid { grid-template-columns:repeat(4, 1fr); gap:22px; } }
+  .card.featured { grid-column:1 / -1; display:grid; grid-template-columns:1fr; }
+  @media(min-width:900px){ .card.featured { grid-column:span 2; grid-row:span 2; } }
+  .pic { position:relative; overflow:hidden; border-radius:3px; }
+  .card:not(.featured) .pic img { width:100%; aspect-ratio:4/5; object-fit:cover; transition:transform .5s ease; }
+  .card:not(.featured):hover .pic img { transform:scale(1.04); }
+  .featured .pic img { width:100%; aspect-ratio:16/12; object-fit:cover; }
+  .cat { margin-top:12px; font-family:'Playfair Display', serif; font-style:italic; font-size:14px; color:var(--accent); }
+  .name { margin-top:4px; font-family:'Playfair Display', serif; font-weight:700; font-size:clamp(17px, 1.7vw, 20px); line-height:1.15; }
+  .featured .name { font-size:clamp(22px, 3vw, 34px); }
+  .price { margin-top:6px; font-family:'Space Grotesk'; font-size:14px; font-weight:600; }
+  .featured .price { font-size:16px; }
+  .card { display:block; }
+  .featured .copy { padding-top:14px; }
+
+  footer { margin-top:clamp(48px, 7vw, 72px); padding:24px clamp(20px, 5vw, 56px); border-top:1px solid var(--line); color:var(--muted); font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <span class="brand">Girliandy <small>світло та затишок</small></span>
+    <a class="nav-link" href="#kataloh">Каталог</a>
+  </header>
+
+  <section class="hero">
+    <div class="masthead">
+      <h1>Світло<br><em>та затишок</em></h1>
+      <div class="meta">
+        <span>Івано-Франківськ</span>
+        <span>210k+ в Instagram</span>
+        <span>Гірлянди · Лампи · Пледи</span>
+      </div>
+      <p class="lead">Каталог, що читається як журнал: великі фото, характерна типографіка і ціни одразу на видноті.</p>
+    </div>
+    <figure class="hero-img">
+      <img src="../assets/ig/05-curtain-garland-post-2.jpg" alt="Штора з гірляндою та дзеркалом у затишній кімнаті">
+    </figure>
+  </section>
+
+  <section class="catalog" id="kataloh">
+    <div class="catalog-head">
+      <h2>Каталог</h2>
+      <a class="more" href="#">Усі товари</a>
+    </div>
+    <div class="grid">
+      <a class="card featured" href="#">
+        <div class="pic"><img src="../assets/ig/06-curtain-garland-post-1.jpg" alt="Гірлянда-штора з теплими вогниками"></div>
+        <div class="copy">
+          <div class="cat">Гірлянди</div>
+          <div class="name">Гірлянда-штора «Тепле світло»</div>
+          <div class="price">1 290 ₴</div>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/01-pled-pidigriv.jpg" alt="Плед із підігрівом"></div>
+        <div class="cat">Пледи з підігрівом</div>
+        <div class="name">Плед із підігрівом</div>
+        <div class="price">1 890 ₴</div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/04-wall-lantern-solar.jpg" alt="Вуличний сонячний ліхтар"></div>
+        <div class="cat">Світильники</div>
+        <div class="name">Вуличний сонячний світильник</div>
+        <div class="price">790 ₴</div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/14-portable-projector.jpg" alt="Портативний смарт-проєктор"></div>
+        <div class="cat">Проєктори</div>
+        <div class="name">Смарт-проєктор для дому</div>
+        <div class="price">1 490 ₴</div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/03-solar-garden-stake.jpg" alt="Садовий сонячний ліхтар"></div>
+        <div class="cat">Садові ліхтарі</div>
+        <div class="name">Садові ліхтарі, набір 4 шт</div>
+        <div class="price">1 190 ₴</div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/15-powerbanks.jpg" alt="Магнітні павербанки"></div>
+        <div class="cat">Павербанки</div>
+        <div class="name">Павербанк 20 000 mAh</div>
+        <div class="price">990 ₴</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Демо-магазин · ціни демонстраційні</span>
+    <span>Фото © @girliandy</span>
+  </footer>
+</body>
+</html>

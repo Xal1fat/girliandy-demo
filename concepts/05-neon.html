@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girliandy — «Неон»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root { --bg:#0b0b12; --panel:#14141f; --ink:#f4f3ff; --muted:#9b98b3; --neon-pink:#ff3cd2; --neon-cyan:#00e5ff; --neon-amber:#ffb23e; }
+  body { background:var(--bg); color:var(--ink); font-family:Inter, system-ui, sans-serif; }
+
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:22px clamp(20px, 5vw, 56px); }
+  .brand { font-family:Unbounded, sans-serif; font-weight:700; font-size:17px; }
+  .brand small { display:block; font-family:Inter; font-weight:400; font-size:12px; color:var(--muted); }
+  .nav-link { font-size:14px; color:var(--neon-cyan); border-bottom:1px solid rgba(0,229,255,.4); padding-bottom:2px; }
+
+  .hero { position:relative; overflow:hidden; padding:clamp(28px, 6vw, 72px) clamp(20px, 5vw, 56px); display:grid; gap:clamp(28px, 6vw, 60px); align-items:center; }
+  .hero::before { content:""; position:absolute; inset:0; background:radial-gradient(60% 50% at 80% 20%, rgba(255,60,210,.16), transparent 60%), radial-gradient(50% 50% at 15% 80%, rgba(0,229,255,.14), transparent 60%); pointer-events:none; }
+  @media(min-width:900px){ .hero { grid-template-columns:1.05fr .95fr; } }
+  .hero-copy { position:relative; }
+  h1 { font-family:Unbounded, sans-serif; font-weight:800; font-size:clamp(32px, 5.6vw, 60px); line-height:1.02; letter-spacing:-.02em; }
+  h1 .grad { background:linear-gradient(100deg, var(--neon-amber), var(--neon-pink) 55%, var(--neon-cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { margin-top:18px; color:var(--muted); font-size:clamp(15px, 1.6vw, 17px); max-width:46ch; }
+  .actions { margin-top:28px; display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { padding:13px 22px; border-radius:10px; font-weight:600; font-size:15px; background:linear-gradient(100deg, var(--neon-pink), var(--neon-cyan)); color:#0b0b12; box-shadow:0 0 24px rgba(255,60,210,.35); }
+  .btn.ghost { background:transparent; color:var(--ink); box-shadow:inset 0 0 0 1px rgba(244,243,255,.22); }
+  .chips { margin-top:26px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { font-size:13px; padding:7px 13px; border-radius:999px; box-shadow:inset 0 0 0 1px rgba(244,243,255,.18); color:var(--muted); }
+
+  .hero-media { position:relative; border-radius:18px; overflow:hidden; box-shadow:0 0 60px -20px rgba(255,60,210,.45); }
+  .hero-media img { width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .hero-media::after { content:""; position:absolute; inset:0; background:linear-gradient(160deg, rgba(255,60,210,.18), transparent 45%, rgba(0,229,255,.16)); mix-blend-mode:screen; pointer-events:none; }
+
+  .catalog { position:relative; padding:clamp(40px, 7vw, 72px) clamp(20px, 5vw, 56px) 0; }
+  .catalog-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:22px; }
+  h2 { font-family:Unbounded, sans-serif; font-size:clamp(22px, 3vw, 30px); font-weight:700; }
+  .more { font-size:14px; color:var(--neon-cyan); border-bottom:1px solid rgba(0,229,255,.4); }
+  .scroller { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(180px, 1fr); gap:14px; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x mandatory; }
+  .card { scroll-snap-align:start; background:var(--panel); border-radius:14px; overflow:hidden; box-shadow:inset 0 0 0 1px rgba(244,243,255,.08); transition:transform .3s ease, box-shadow .3s ease; }
+  .card:hover { transform:translateY(-4px); box-shadow:0 0 26px -6px rgba(0,229,255,.5), inset 0 0 0 1px rgba(0,229,255,.5); }
+  .pic { position:relative; }
+  .pic img { width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .badge { position:absolute; top:9px; left:9px; font-size:11px; font-weight:600; padding:4px 9px; border-radius:999px; background:rgba(11,11,18,.72); color:var(--neon-cyan); box-shadow:inset 0 0 0 1px rgba(0,229,255,.5); }
+  .info { padding:12px 14px 14px; }
+  .name { font-size:14px; font-weight:500; line-height:1.35; }
+  .price { margin-top:4px; font-size:15px; font-weight:700; color:var(--neon-amber); }
+  .cat { margin-top:2px; font-size:12px; color:var(--muted); }
+
+  footer { margin-top:clamp(48px, 7vw, 72px); padding:24px clamp(20px, 5vw, 56px); border-top:1px solid rgba(244,243,255,.1); color:var(--muted); font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <span class="brand">Girliandy <small>світло та затишок</small></span>
+    <a class="nav-link" href="#kataloh">Каталог</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Засвіти<br><span class="grad">свій простір.</span></h1>
+      <p class="sub">Гірлянди й лампи, які перетворюють кімнату на атмосферу. Обери свій вайб — ми відправимо.</p>
+      <div class="actions">
+        <a class="btn" href="#kataloh">Дивитися каталог</a>
+        <a class="btn ghost" href="https://t.me/girliandy">Замовити в Telegram</a>
+      </div>
+      <div class="chips">
+        <span class="chip">Гірлянди</span><span class="chip">Світильники</span><span class="chip">Садові ліхтарі</span><span class="chip">Фонарики</span><span class="chip">Пледи з підігрівом</span><span class="chip">Проєктори</span><span class="chip">Павербанки</span>
+      </div>
+    </div>
+    <figure class="hero-media">
+      <img src="../assets/ig/07-decor-lantern-string.jpg" alt="Декоративний ліхтар із гірляндою в нічній зелені">
+    </figure>
+  </section>
+
+  <section class="catalog" id="kataloh">
+    <div class="catalog-head">
+      <h2>Каталог</h2>
+      <a class="more" href="#">Усі товари</a>
+    </div>
+    <div class="scroller">
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/06-curtain-garland-post-1.jpg" alt="Гірлянда-штора з теплими вогниками"><span class="badge">Хіт</span></div>
+        <div class="info"><div class="name">Гірлянда-штора «Тепле світло»</div><div class="price">1 290 ₴</div><div class="cat">Гірлянди</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/01-pled-pidigriv.jpg" alt="Плед із підігрівом"><span class="badge">Must have</span></div>
+        <div class="info"><div class="name">Плед із підігрівом</div><div class="price">1 890 ₴</div><div class="cat">Пледи з підігрівом</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/04-wall-lantern-solar.jpg" alt="Вуличний сонячний ліхтар"><span class="badge">Гарантія 2 роки</span></div>
+        <div class="info"><div class="name">Вуличний сонячний світильник</div><div class="price">790 ₴</div><div class="cat">Світильники</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/14-portable-projector.jpg" alt="Портативний смарт-проєктор"><span class="badge">Новинка</span></div>
+        <div class="info"><div class="name">Смарт-проєктор для дому</div><div class="price">1 490 ₴</div><div class="cat">Проєктори</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/03-solar-garden-stake.jpg" alt="Садовий сонячний ліхтар"></div>
+        <div class="info"><div class="name">Садові ліхтарі, набір 4 шт</div><div class="price">1 190 ₴</div><div class="cat">Садові ліхтарі</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/15-powerbanks.jpg" alt="Магнітні павербанки"></div>
+        <div class="info"><div class="name">Павербанк 20 000 mAh</div><div class="price">990 ₴</div><div class="cat">Павербанки</div></div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Демо-магазин · ціни демонстраційні</span>
+    <span>Фото © @girliandy</span>
+  </footer>
+</body>
+</html>

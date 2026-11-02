@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girliandy — «Вітрина»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root { --bg:#ffffff; --panel:#f6f6f5; --ink:#16161a; --muted:#7a7a80; --line:#e8e8e6; }
+  body { background:var(--bg); color:var(--ink); font-family:Inter, system-ui, sans-serif; }
+
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:22px clamp(20px, 5vw, 56px); }
+  .brand { font-weight:700; font-size:19px; letter-spacing:-.02em; }
+  .brand small { display:block; font-weight:400; font-size:12px; color:var(--muted); }
+  .nav-link { font-size:14px; border-bottom:1px solid var(--line); padding-bottom:2px; }
+
+  .hero { display:grid; gap:clamp(28px, 6vw, 56px); padding:clamp(28px, 6vw, 72px) clamp(20px, 5vw, 56px); align-items:center; }
+  @media(min-width:900px){ .hero { grid-template-columns:.95fr 1.05fr; } }
+  h1 { font-weight:700; font-size:clamp(30px, 5.4vw, 58px); line-height:1.05; letter-spacing:-.03em; }
+  .sub { margin-top:16px; color:var(--muted); font-size:15px; max-width:46ch; }
+  .actions { margin-top:28px; display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { padding:13px 22px; border-radius:10px; font-weight:600; font-size:15px; background:var(--ink); color:#fff; }
+  .btn.ghost { background:transparent; color:var(--ink); box-shadow:inset 0 0 0 1px var(--line); }
+  .chips { margin-top:26px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { font-size:13px; padding:7px 14px; border-radius:8px; box-shadow:inset 0 0 0 1px var(--line); color:var(--ink); }
+
+  .showcase { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .tile { border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--panel); }
+  .tile img { width:100%; aspect-ratio:1/1; object-fit:cover; }
+  .tile .info { padding:10px 12px 12px; background:var(--bg); border-top:1px solid var(--line); }
+  .tile .name { font-size:13px; font-weight:500; }
+  .tile .price { font-size:14px; font-weight:700; margin-top:2px; }
+
+  .catalog { padding:clamp(40px, 7vw, 72px) clamp(20px, 5vw, 56px) 0; }
+  .catalog-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:22px; }
+  h2 { font-size:clamp(24px, 3.4vw, 34px); font-weight:700; letter-spacing:-.02em; }
+  .more { font-size:14px; color:var(--muted); border-bottom:1px solid var(--line); }
+  .grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+  @media(min-width:720px){ .grid { grid-template-columns:repeat(3, 1fr); gap:18px; } }
+  @media(min-width:1000px){ .grid { grid-template-columns:repeat(4, 1fr); } }
+  .card { border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .pic { background:var(--panel); }
+  .pic img { width:100%; aspect-ratio:1/1; object-fit:cover; }
+  .info { padding:12px 14px 14px; }
+  .name { font-size:14px; font-weight:500; }
+  .price { margin-top:4px; font-size:16px; font-weight:700; }
+  .cat { margin-top:2px; font-size:12px; color:var(--muted); }
+
+  footer { margin-top:clamp(48px, 7vw, 72px); padding:24px clamp(20px, 5vw, 56px); border-top:1px solid var(--line); color:var(--muted); font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <span class="brand">Girliandy <small>світло та затишок</small></span>
+    <a class="nav-link" href="#kataloh">Каталог</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Світло та затишок, без зайвих слів.</h1>
+      <p class="sub">Каталог, де ціна видна одразу, а замовити можна в Telegram за один дотик. Товар і ціна — на першому плані.</p>
+      <div class="actions">
+        <a class="btn" href="#kataloh">Дивитися каталог</a>
+        <a class="btn ghost" href="https://t.me/girliandy">Замовити в Telegram</a>
+      </div>
+      <div class="chips">
+        <span class="chip">Гірлянди</span><span class="chip">Світильники</span><span class="chip">Садові ліхтарі</span><span class="chip">Фонарики</span><span class="chip">Пледи з підігрівом</span><span class="chip">Проєктори</span><span class="chip">Павербанки</span>
+      </div>
+    </div>
+    <div class="showcase">
+      <a class="tile" href="#"><img src="../assets/ig/14-portable-projector.jpg" alt="Портативний смарт-проєктор"><span class="info"><span class="name">Смарт-проєктор для дому</span><span class="price">1 490 ₴</span></span></a>
+      <a class="tile" href="#"><img src="../assets/ig/01-pled-pidigriv.jpg" alt="Плед із підігрівом"><span class="info"><span class="name">Плед із підігрівом</span><span class="price">1 890 ₴</span></span></a>
+      <a class="tile" href="#"><img src="../assets/ig/04-wall-lantern-solar.jpg" alt="Вуличний сонячний ліхтар"><span class="info"><span class="name">Вуличний сонячний світильник</span><span class="price">790 ₴</span></span></a>
+      <a class="tile" href="#"><img src="../assets/ig/15-powerbanks.jpg" alt="Магнітні павербанки"><span class="info"><span class="name">Павербанк 20 000 mAh</span><span class="price">990 ₴</span></span></a>
+    </div>
+  </section>
+
+  <section class="catalog" id="kataloh">
+    <div class="catalog-head">
+      <h2>Каталог</h2>
+      <a class="more" href="#">Усі товари</a>
+    </div>
+    <div class="grid">
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/06-curtain-garland-post-1.jpg" alt="Гірлянда-штора з теплими вогниками"></div>
+        <div class="info"><div class="name">Гірлянда-штора «Тепле світло»</div><div class="price">1 290 ₴</div><div class="cat">Гірлянди</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/01-pled-pidigriv.jpg" alt="Плед із підігрівом"></div>
+        <div class="info"><div class="name">Плед із підігрівом</div><div class="price">1 890 ₴</div><div class="cat">Пледи з підігрівом</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/04-wall-lantern-solar.jpg" alt="Вуличний сонячний ліхтар"></div>
+        <div class="info"><div class="name">Вуличний сонячний світильник</div><div class="price">790 ₴</div><div class="cat">Світильники</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/14-portable-projector.jpg" alt="Портативний смарт-проєктор"></div>
+        <div class="info"><div class="name">Смарт-проєктор для дому</div><div class="price">1 490 ₴</div><div class="cat">Проєктори</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/03-solar-garden-stake.jpg" alt="Садовий сонячний ліхтар"></div>
+        <div class="info"><div class="name">Садові ліхтарі, набір 4 шт</div><div class="price">1 190 ₴</div><div class="cat">Садові ліхтарі</div></div>
+      </a>
+      <a class="card" href="#">
+        <div class="pic"><img src="../assets/ig/15-powerbanks.jpg" alt="Магнітні павербанки"></div>
+        <div class="info"><div class="name">Павербанк 20 000 mAh</div><div class="price">990 ₴</div><div class="cat">Павербанки</div></div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Демо-магазин · ціни демонстраційні</span>
+    <span>Фото © @girliandy</span>
+  </footer>
+</body>
+</html>
